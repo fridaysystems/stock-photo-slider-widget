@@ -23,19 +23,14 @@ class Stock_Photo_Slider_Widget_Driver{
 
 	function load_scripts() {
 
-		//is _dealer-flexslider already enqueued? is flexslider?
-		$dealer_theme = wp_script_is( '_dealer-flexslider' );
-		$otherwise_have = wp_script_is( 'flexslider' );
-		if( ! $dealer_theme && ! $otherwise_have ) {
+		//Is flexslider already enqueued? (Probably, it's provided by Inventory Presser)
+		if( ! wp_script_is( 'flexslider' ) ) {
 			wp_register_script( 'flexslider', plugins_url( '/assets/jquery.flexslider.min.js', __FILE__ ), array('jquery') );
-			wp_enqueue_script( 'flexslider' );
-			wp_add_inline_script( ( $dealer_theme ? '_dealer-flexslider' : 'flexslider' ), 'jQuery(document).ready( function() { jQuery(".flex-native").flexslider({ animation: "fade", controlNav: false, slideshow: true, animationSpeed: 300 }); });' );
 		}
+		wp_add_inline_script( 'flexslider', 'jQuery(document).ready( function() { jQuery(".flex-native").flexslider({ animation: "fade", controlNav: false, slideshow: true, animationSpeed: 300 }); });' );
 
-		//is invp-simple-listing-style already enqueued? is _dealer/style.css?
-		if( ! wp_style_is( 'invp-simple-listing-style' ) && ! wp_style_is( '_dealer-base' ) ) {
-			wp_enqueue_style( 'invp-sps', plugins_url('/assets/flexslider.css', __FILE__ ) );
-		}
+		//styles for flexslider
+		wp_enqueue_style( 'invp-sps', plugins_url('/assets/flexslider.css', __FILE__ ) );
 	}
 
 	function register_widget() {
