@@ -128,25 +128,6 @@ class Stock_Photo_Slider_Widget extends WP_Widget {
 	// front-end
 	public function widget( $args, $instance ) {
 
-		wp_enqueue_style( 'flexslider' );
-		wp_enqueue_style( 'invp-flexslider' );
-		// wp_enqueue_script( 'invp-flexslider', '', array(), false, true );
-		?><script type="text/javascript"><!--
-
-		jQuery(document).ready(function() {
-			jQuery('.flexslider').flexslider({
-				animation: 'slide',
-				animationSpeed: 300,
-				controlNav: false,
-				directionNav: false,
-				prevText: '',
-				nextText: '',
-				slideshow: true,
-			});
-		});
-
-		//--></script><?php
-
 		$link_slides = (isset($instance['link_slides']) && $instance['link_slides'] == 'true');
 
 		$image_pool = array();

@@ -27,9 +27,23 @@ class Stock_Photo_Slider_Widget_Driver{
 		if( ! wp_script_is( 'flexslider' ) ) {
 			wp_register_script( 'flexslider', plugins_url( '/assets/jquery.flexslider.min.js', __FILE__ ), array('jquery') );
 		}
-		wp_add_inline_script( 'flexslider', 'jQuery(document).ready( function() { jQuery(".flex-native").flexslider({ animation: "fade", controlNav: false, slideshow: true, animationSpeed: 300 }); });' );
 
-		//styles for flexslider
+		//This script starts the slideshow
+		wp_add_inline_script( 'flexslider',
+			"jQuery(document).ready(function() {
+				jQuery('.flexslider').flexslider({
+					animation: 'slide',
+					animationSpeed: 300,
+					controlNav: false,
+					directionNav: false,
+					prevText: '',
+					nextText: '',
+					slideshow: true,
+				});
+			});"
+		);
+
+		//Styles for flexslider
 		wp_enqueue_style( 'invp-sps', plugins_url('/assets/flexslider.css', __FILE__ ) );
 	}
 
