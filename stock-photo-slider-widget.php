@@ -31,7 +31,7 @@ class Stock_Photo_Slider_Widget_Driver{
 		//This script starts the slideshow
 		wp_add_inline_script( 'flexslider',
 			"jQuery(document).ready(function() {
-				jQuery('.flexslider').flexslider({
+				jQuery('.flexslider.invp-sps').flexslider({
 					animation: 'slide',
 					animationSpeed: 300,
 					controlNav: false,
@@ -42,9 +42,6 @@ class Stock_Photo_Slider_Widget_Driver{
 				});
 			});"
 		);
-
-		//Styles for flexslider
-		wp_enqueue_style( 'invp-sps', plugins_url('/assets/flexslider.css', __FILE__ ) );
 	}
 
 	function register_widget() {

@@ -128,6 +128,9 @@ class Stock_Photo_Slider_Widget extends WP_Widget {
 	// front-end
 	public function widget( $args, $instance ) {
 
+		//Styles for flexslider
+		wp_enqueue_style( 'invp-sps', plugins_url('/assets/flexslider.css', __FILE__ ) );
+
 		$link_slides = (isset($instance['link_slides']) && $instance['link_slides'] == 'true');
 
 		$image_pool = array();
@@ -151,7 +154,7 @@ class Stock_Photo_Slider_Widget extends WP_Widget {
 
 		?>
 
-		<div id="slider" class="flexslider flex-native">
+		<div class="flexslider flex-native invp-sps">
 		<ul class="slides">
 		<?php
 
