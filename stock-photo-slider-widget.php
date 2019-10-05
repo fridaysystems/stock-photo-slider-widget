@@ -1,5 +1,4 @@
 <?php
-defined( 'ABSPATH' ) or exit;
 /**
  * Plugin Name: Stock Photo Slider Widget
  * Plugin URI: https://inventorypresser.com
@@ -12,6 +11,8 @@ defined( 'ABSPATH' ) or exit;
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 class Stock_Photo_Slider_Widget_Driver{
 
