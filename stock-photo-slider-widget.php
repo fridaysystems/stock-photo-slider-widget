@@ -14,6 +14,8 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
+define( 'INVP_PLUGIN_FILE_PATH_SPS', __FILE__ );
+
 class Stock_Photo_Slider_Widget_Driver{
 
 	function hooks() {
