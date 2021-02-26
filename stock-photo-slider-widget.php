@@ -23,11 +23,10 @@ class Stock_Photo_Slider_Widget_Driver{
 	}
 
 	function load_scripts() {
-
-		//Is flexslider already enqueued? (Probably, it's provided by Inventory Presser)
-		if( ! wp_script_is( 'flexslider' ) ) {
-			wp_register_script( 'flexslider', plugins_url( '/assets/jquery.flexslider.min.js', __FILE__ ), array('jquery') );
-		}
+		wp_enqueue_script( 'flexslider' );
+		wp_enqueue_script( 'invp-flexslider' );
+		wp_enqueue_style( 'flexslider' );
+		wp_enqueue_style( 'invp-flexslider' );
 
 		//This script starts the slideshow
 		wp_add_inline_script( 'flexslider',
