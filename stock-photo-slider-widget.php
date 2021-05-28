@@ -21,7 +21,7 @@ class Stock_Photo_Slider_Widget_Driver{
 	function hooks() {
 		include_once( 'includes/class-widget-stock-photo-slider.php' );
 		add_action( 'widgets_init', array( $this, 'register_widget' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts'), 11 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'load_scripts'), 12 );
 	}
 
 	function load_scripts() {
