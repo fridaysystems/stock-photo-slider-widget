@@ -129,7 +129,7 @@ class Stock_Photo_Slider_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 
 		//Styles for flexslider
-		wp_enqueue_style( 'invp-sps', plugins_url( '/assets/flexslider.css', INVP_PLUGIN_FILE_PATH_SPS ) );
+		wp_enqueue_style( 'invp-sps', plugins_url( 'assets/flexslider.css', INVP_PLUGIN_FILE_PATH_SPS ) );
 
 		$link_slides = (isset($instance['link_slides']) && $instance['link_slides'] == 'true');
 
