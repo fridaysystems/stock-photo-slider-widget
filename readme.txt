@@ -3,7 +3,7 @@ Contributors: salzano
 Tags: car dealer, dealership photos
 Requires at least: 5.0.0
 Tested up to: 5.6.2
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,6 +16,9 @@ This plugin was built as an add-on for websites running Inventory Presser, but i
 
 
 == Changelog ==
+
+= 2.0.1 =
+* [Fixed] Changes the hook priority used to enqueue scripts and styles to explicitly come after Inventory Presser's similar calls. This plugin piggybacks on the flexslider that ships with Inventory Presser.
 
 = 2.0.0 =
 * [Fixed] Fixes a broken path that prevented this plugin's stylesheet from being included on pages where the slider appears.
