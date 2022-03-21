@@ -3,8 +3,8 @@
  * Plugin Name: Stock Photo Slider Widget
  * Plugin URI: https://inventorypresser.com
  * Description: A slider widget that includes automobile stock photography.
- * Version: 2.0.1
- * Author: John Norton, Corey Salzano
+ * Version: 2.0.2
+ * Author: Corey Salzano
  * Author URI: https://profiles.wordpress.org/salzano
  * Text Domain: inventory-presser-sps
  * Domain Path: /languages
