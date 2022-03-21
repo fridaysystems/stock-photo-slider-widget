@@ -135,28 +135,48 @@ class Stock_Photo_Slider_Widget extends WP_Widget {
 
 		$image_pool = array();
 		// merge each photo set into one array
-		foreach ($instance['image_sets'] as $set) {
-			$image_pool = array_merge($image_pool, $this->image_sets()[$set]['photos']);
+		if( ! empty( $instance['image_sets'] ) )
+		{
+			foreach ($instance['image_sets'] as $set) {
+				$image_pool = array_merge($image_pool, $this->image_sets()[$set]['photos']);
+			}
 		}
+
+		if( empty( $image_pool ) )
+		{
+			return;
+		}
+
 		// mix em up for random display
 		shuffle($image_pool);
+
 		// take the first 5
 		$display_images = array_slice($image_pool, 0, 5);
 		// base url of photos
 		$base_url = plugins_url( '/assets/', dirname(__FILE__));
 
-		$title = apply_filters( 'widget_title', $instance['title'] );
+
 		// before and after widget arguments are defined by themes
-		echo $args['before_widget'];
+		if( ! empty( $args['before_widget'] ) )
+		{
+			echo $args['before_widget'];
+		}
 
-		if (!empty( $title ))
-		echo $args['before_title'] . $title . $args['after_title'];
+		$title = apply_filters( 'widget_title', $instance['title'] ?? '' );
+		if( ! empty( $title ) )
+		{
+			if( ! empty( $args['before_title'] ) )
+			{
+				echo $args['before_title'];
+			}
+			echo $title;
+			if( ! empty( $args['after_title'] ) )
+			{
+				echo $args['after_title'];
+			}			
+		}
 
-		?>
-
-		<div class="flexslider flex-native invp-sps">
-		<ul class="slides">
-		<?php
+		?><div class="flexslider flex-native invp-sps"><ul class="slides"><?php
 
 		foreach ($display_images as $filename) {
 			if ( $link_slides && class_exists( 'Inventory_Presser_Plugin' ) ) {
