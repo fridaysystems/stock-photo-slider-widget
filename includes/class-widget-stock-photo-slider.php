@@ -179,10 +179,10 @@ class Stock_Photo_Slider_Widget extends WP_Widget {
 		?><div class="flexslider flex-native invp-sps"><ul class="slides"><?php
 
 		foreach ($display_images as $filename) {
-			if ( $link_slides && class_exists( 'Inventory_Presser_Plugin' ) ) {
+			if ( $link_slides && class_exists( 'INVP' ) ) {
 				printf(
 					'<li><a href="%s"><img src="%s"></a></li>',
-					get_post_type_archive_link( Inventory_Presser_Plugin::CUSTOM_POST_TYPE ),
+					get_post_type_archive_link( INVP::POST_TYPE ),
 					$base_url . $filename
 				);
 			} else {
